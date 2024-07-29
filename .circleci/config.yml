@@ -5,6 +5,7 @@ orbs:
 workflows:
   maven_test:
     jobs:
+      - checkout
       - maven/parallel_test:
           executor:
             name: maven/default
