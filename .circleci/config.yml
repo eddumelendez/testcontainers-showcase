@@ -5,11 +5,10 @@ orbs:
 workflows:
   maven_test:
     jobs:
-      - checkout
       - maven/parallel_test:
           executor:
             name: maven/default
-            tag: "17.0"
+            tag: "21.0"
           parallelism: 4
           parallel_it_pattern: "**/*Test*.java"
           pre-steps:
