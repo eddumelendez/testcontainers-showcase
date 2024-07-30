@@ -10,4 +10,5 @@ workflows:
             name: maven/default
             tag: "21.0"
           pre-steps:
+            - checkout
             - tcc/setup
