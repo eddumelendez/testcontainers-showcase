@@ -7,4 +7,4 @@ workflows:
       - maven/test:
           executor:
             name: maven/default
-            tag: "2117.0"
+            tag: "21.0"
