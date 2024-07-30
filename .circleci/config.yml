@@ -1,14 +1,15 @@
 version: '2.1'
 orbs:
   maven: circleci/maven@1.4.1
-jobs:
-  build:
-    executor:
-      name: maven/default
-      tag: "21.0"
-    steps:
-      - setup_remote_docker:
-          version: 20.10.14
-          docker_layer_caching: true
-      - checkout
-      - run: "./mvnw verify"
+executors:
+  machine_executor_amd64:
+    machine:
+      image: ubuntu-2204:2022.04.2
+    environment:
+      architecture: "amd64"
+      platform: "linux/amd64"
+workflows:
+  maven_test:
+    jobs:
+      - maven/test:
+          executor: machine_executor_amd64
