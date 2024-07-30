@@ -1,15 +1,10 @@
-version: '2.1'
+version: 2.1
 orbs:
-  maven: circleci/maven@1.4.1
-  tcc: atomicjar/testcontainers-cloud-orb@0.1.0
+  maven: circleci/maven@1.4.13.0
 workflows:
   maven_test:
     jobs:
-      - maven/parallel_test:
+      - maven/test:
           executor:
             name: maven/default
-            tag: "21.0"
-          parallelism: 4
-          parallel_it_pattern: "**/*Test*.java"
-          pre-steps:
-            - tcc/setup
+            tag: "2117.0"
